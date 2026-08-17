@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Users } from 'lucide-react'
+import { ArrowUpRight, Calendar, Clock, MapPin, Users } from 'lucide-react'
 import type { ExperienceDemo } from '../data/demos'
 import { DemoArt } from './DemoArt'
 
@@ -9,7 +9,20 @@ interface DemoCardProps {
   onOpen: (demo: ExperienceDemo) => void
 }
 
+const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  'Weddings': { bg: 'rgba(201,169,104,0.15)', text: '#ddc184', border: 'rgba(201,169,104,0.3)' },
+  'Engagement': { bg: 'rgba(171,142,192,0.15)', text: '#c4a5d8', border: 'rgba(171,142,192,0.3)' },
+  'Pre-Wedding': { bg: 'rgba(143,182,201,0.15)', text: '#a8ccd8', border: 'rgba(143,182,201,0.3)' },
+  'Birthdays': { bg: 'rgba(231,165,152,0.15)', text: '#e8a598', border: 'rgba(231,165,152,0.3)' },
+  'Baby & Family': { bg: 'rgba(169,191,157,0.15)', text: '#b8ccaa', border: 'rgba(169,191,157,0.3)' },
+  'Corporate': { bg: 'rgba(127,168,217,0.15)', text: '#95bde0', border: 'rgba(127,168,217,0.3)' },
+  'College': { bg: 'rgba(232,160,201,0.15)', text: '#e8a0c9', border: 'rgba(232,160,201,0.3)' },
+  'Special Events': { bg: 'rgba(232,201,160,0.15)', text: '#e0c89a', border: 'rgba(232,201,160,0.3)' },
+}
+
 export function DemoCard({ demo, index, onOpen }: DemoCardProps) {
+  const cat = CATEGORY_COLORS[demo.category] || CATEGORY_COLORS['Weddings']
+
   return (
     <motion.article
       layout
@@ -30,14 +43,16 @@ export function DemoCard({ demo, index, onOpen }: DemoCardProps) {
           className="aspect-[16/10] w-full transition-transform duration-700 group-hover:scale-[1.05]"
           animated={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/20 to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/30 to-transparent opacity-90" />
+
+        {/* Top badges */}
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4">
           <span
             className="rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] backdrop-blur-md"
             style={{
-              borderColor: `color-mix(in srgb, ${demo.theme.c.a} 45%, transparent)`,
-              backgroundColor: `color-mix(in srgb, ${demo.theme.c.base} 60%, transparent)`,
-              color: demo.theme.c.text,
+              borderColor: cat.border,
+              backgroundColor: cat.bg,
+              color: cat.text,
             }}
           >
             {demo.category}
@@ -46,30 +61,68 @@ export function DemoCard({ demo, index, onOpen }: DemoCardProps) {
             {demo.style}
           </span>
         </div>
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
-          <div>
-            <p className="font-display text-2xl font-medium leading-tight text-cream">{demo.heroTitle}</p>
-            <p className="mt-1 text-xs text-cream/55">{demo.venue}</p>
+
+        {/* Bottom overlay info */}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <div className="flex items-end justify-between">
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-2xl font-medium leading-tight text-cream">{demo.heroTitle}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                {demo.dateDisplay && (
+                  <span className="flex items-center gap-1 text-[0.7rem] text-cream/60">
+                    <Calendar className="h-3 w-3" />
+                    {demo.dateDisplay}
+                  </span>
+                )}
+                <span className="flex items-center gap-1 text-[0.7rem] text-cream/60">
+                  <MapPin className="h-3 w-3" />
+                  {demo.venue}
+                </span>
+              </div>
+            </div>
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/20 bg-ink-950/50 text-cream backdrop-blur-md transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink-950">
+              <ArrowUpRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
           </div>
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cream/20 bg-ink-950/50 text-cream backdrop-blur-md transition-all duration-300 group-hover:border-gold group-hover:bg-gold group-hover:text-ink-950">
-            <ArrowUpRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </span>
         </div>
       </button>
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-lg font-medium text-cream">{demo.name}</h3>
         <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-cream/55">{demo.tagline}</p>
+
+        {/* Highlights */}
+        {demo.highlights && demo.highlights.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {demo.highlights.slice(0, 3).map((h) => (
+              <span
+                key={h}
+                className="rounded-full bg-cream/5 px-2.5 py-0.5 text-[0.6rem] font-medium text-cream/45"
+              >
+                {h}
+              </span>
+            ))}
+          </div>
+        )}
+
         <div className="mt-4 flex items-center justify-between border-t border-cream/8 pt-4">
-          <span className="flex items-center gap-1.5 text-xs text-cream/45">
-            <Users className="h-3.5 w-3.5" />
-            {demo.guests > 0 ? `${demo.guests.toLocaleString()} guests` : 'Private'}
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 text-xs text-cream/45">
+              <Users className="h-3.5 w-3.5" />
+              {demo.guests > 0 ? `${demo.guests.toLocaleString()}` : 'Private'}
+            </span>
+            {demo.timeDisplay && (
+              <span className="flex items-center gap-1 text-xs text-cream/45">
+                <Clock className="h-3 w-3" />
+                {demo.timeDisplay}
+              </span>
+            )}
+          </div>
           <button
             onClick={() => onOpen(demo)}
             className="group/btn inline-flex items-center gap-1.5 text-sm font-semibold text-gold-soft transition-colors hover:text-gold"
           >
-            View Experience
+            View
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
           </button>
         </div>

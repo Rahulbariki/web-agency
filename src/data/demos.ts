@@ -132,6 +132,10 @@ export interface ExperienceDemo {
   contact: ContactConfig
   specialFeatures: SpecialFeature[]
   family?: FamilyMember[]
+  /** Rich card metadata */
+  dateDisplay?: string
+  timeDisplay?: string
+  highlights?: string[]
 }
 
 export const CATEGORIES: Category[] = [
@@ -225,6 +229,9 @@ export const DEMOS: ExperienceDemo[] = [
       { name: 'Anjali', relation: 'Sister of the bride', note: 'Chief of ceremonies, holder of tissues, keeper of the playlist.', scene: 'floral' },
       { name: 'Kabir', relation: 'Brother of the groom', note: 'Running the whiskey bar and the speech that will embarrass Dev.', scene: 'sunset' },
     ],
+    dateDisplay: '14 Aug 2026',
+    timeDisplay: '4:00 PM onwards',
+    highlights: ['Candlelit garden ceremony', 'Curated tasting menu', 'Live song requests'],
   },
   {
     id: 'meera-kabir-banyan',
@@ -385,7 +392,10 @@ export const DEMOS: ExperienceDemo[] = [
       { name: 'Thea', relation: 'Sister of the bride', note: 'Florist, and the reason every table looks like a garden.' },
       { name: 'Max', relation: 'Brother of the groom', note: 'Chartering the boats that will carry everyone to the ceremony.' },
     ],
-  },
+  
+    dateDisplay: '22 May 2026',
+    timeDisplay: '6:15 PM onwards',
+    highlights: ['Cliffside sunset ceremony', 'Film crew photography', 'Barefoot dancing by the sea'],},
   {
     id: 'riya-aarav-forever-begins',
     name: 'Riya & Aarav — Forever Begins',
@@ -464,7 +474,10 @@ export const DEMOS: ExperienceDemo[] = [
       { name: 'Meera & Vijay Aarav', relation: 'Parents of the groom', note: 'Proof that a long marriage is a shared drawing, endlessly revised.' },
       { name: 'Ishaan', relation: 'Brother of the groom', note: 'Structural engineer. Runs the rooftop and the playlist.' },
     ],
-  },
+  
+    dateDisplay: '2 Jun 2026',
+    timeDisplay: '7:00 PM onwards',
+    highlights: ['Rooftop city views', 'Architect-designed proposal', 'One long dinner table'],},
   {
     id: 'nina-jose-proposal-night',
     name: 'Nina & José — The Proposal Night',
@@ -538,7 +551,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'camera', title: 'No-Phone Night', note: 'A photo booth with the film crew does the remembering.' },
       { icon: 'heart', title: 'The Story, Told', note: 'Read how forty roses became one question.' },
     ],
-  },
+  
+    dateDisplay: '27 Feb 2026',
+    timeDisplay: '8:00 PM onwards',
+    highlights: ['Midnight garden setting', 'No-phone photography night', 'Candlelit tasting menu'],},
   {
     id: 'story-before-twin-suns',
     name: 'The Story Before — Twin Suns',
@@ -612,7 +628,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'camera', title: 'All Frames', note: 'Every single frame, downloadable in a private gallery.' },
       { icon: 'leaf', title: 'The Location', note: 'A guide to the salt desert, for anyone who wants to wander.' },
     ],
-  },
+  
+    dateDisplay: 'Visual Journal',
+    timeDisplay: 'Two golden days',
+    highlights: ['Desert dune locations', 'Aurora-painted skies', 'Vintage truck shoot'],},
   {
     id: 'anna-marco-two-landscapes',
     name: 'Anna & Marco — Two Landscapes',
@@ -686,7 +705,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'book', title: 'Travel Notes', note: 'Field notes and train timetables from both trips.' },
       { icon: 'camera', title: 'The Negatives', note: 'Unedited frames, shown side by side.' },
     ],
-  },
+  
+    dateDisplay: '7 Days',
+    timeDisplay: 'First light to last',
+    highlights: ['Two Italian landscapes', 'Train journey between homes', 'Seven-day photo journal'],},
   {
     id: 'aria-turns-sixteen',
     name: 'Aria Turns Sixteen',
@@ -760,7 +782,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'camera', title: 'Live Photo Wall', note: 'Every booth print appears on the site live.' },
       { icon: 'sparkles', title: 'Dress Code', note: 'Neon and glitter encouraged — no exceptions.' },
     ],
-  },
+  
+    dateDisplay: '9 Apr 2026',
+    timeDisplay: '6:00 PM onwards',
+    highlights: ['Confetti cannons hourly', 'Live photo booth wall', 'DJ until the lights blur'],},
   {
     id: 'grandpas-eightieth',
     name: 'Grandpa’s 80th — A Century of Love',
@@ -834,7 +859,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'book', title: 'Tribute Wall', note: 'A message for Vijay Uncle, read aloud at the cake moment.' },
       { icon: 'music', title: 'The Aunties’ Setlist', note: 'The dance-floor hits, announced in advance.' },
     ],
-  },
+  
+    dateDisplay: '5 Oct 2026',
+    timeDisplay: '6:30 PM onwards',
+    highlights: ['Eight decades slideshow', 'Family tribute videos', 'Marigold decorations'],},
   {
     id: 'welcome-little-nova',
     name: 'Welcome, Little Nova',
@@ -912,7 +940,10 @@ export const DEMOS: ExperienceDemo[] = [
       { name: 'Dadi', relation: 'Great-grandmother', note: 'She calls Nova by five names. All of them loving.' },
       { name: 'Rishi', relation: 'Uncle', note: 'The photographer — every milestone is his doing.' },
     ],
-  },
+  
+    dateDisplay: 'Born 3 Mar 2026',
+    timeDisplay: '3:14 AM',
+    highlights: ['Digital nursery book', 'Milestone photo wall', 'The naming ceremony'],},
   {
     id: 'mehra-family-reunion',
     name: 'The Mehras — Family Reunion',
@@ -986,7 +1017,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'book', title: 'Recipe Book', note: 'The thali recipes, with the family arguments included.' },
       { icon: 'map', title: 'Family Tree', note: 'Four generations, mapped and current.' },
     ],
-  },
+  
+    dateDisplay: '12 Dec 2026',
+    timeDisplay: 'All day',
+    highlights: ['Four generations gathering', 'Recipe book arguments', 'The enormous family thali'],},
   {
     id: 'vertex-summit-2026',
     name: 'Vertex Annual Summit',
@@ -1060,7 +1094,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'wifi', title: 'Networking Cards', note: 'Digital cards to trade, saved automatically.' },
       { icon: 'ticket', title: 'Digital Badge', note: 'One QR for entry, tracks and the rooftop.' },
     ],
-  },
+  
+    dateDisplay: '14-16 Aug 2026',
+    timeDisplay: '10:00 AM onwards',
+    highlights: ['100+ sessions across 3 days', 'Networking card exchange', 'Rooftop after-dark party'],},
   {
     id: 'nova-launch-night',
     name: 'Nova Launch Night',
@@ -1134,7 +1171,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'video', title: 'The After-Movie', note: 'A recap film, premiered within 24 hours.' },
       { icon: 'sparkles', title: 'Zone Map', note: 'Live wait-times for each of the four zones.' },
     ],
-  },
+  
+    dateDisplay: '20 Sep 2026',
+    timeDisplay: '7:00 PM onwards',
+    highlights: ['Immersive laser reveal', 'Live demo stages', 'Constellation light walk'],},
   {
     id: 'freshers-soiree',
     name: 'Freshers’ Soirée',
@@ -1208,7 +1248,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'camera', title: 'Soirée Wall', note: 'Live polaroids from the booth, all night.' },
       { icon: 'star', title: 'Dress Code', note: 'Neon constellations — check the lookbook.' },
     ],
-  },
+  
+    dateDisplay: '25 Aug 2026',
+    timeDisplay: '6:00 PM onwards',
+    highlights: ['Neon constellation theme', 'Live photo booth', 'Campus DJ sets'],},
   {
     id: 'techfest-2026',
     name: 'TechFest 2026',
@@ -1282,7 +1325,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'map', title: 'Campus Map', note: 'Every venue, food lane and water refill point.' },
       { icon: 'wifi', title: 'Live Scores', note: 'Robo-wars and hack results, updated live.' },
     ],
-  },
+  
+    dateDisplay: '9-11 Oct 2026',
+    timeDisplay: 'All three days',
+    highlights: ['Robo-wars arena', '60-hour hackathon', 'Midnight laser tag league'],},
   {
     id: 'gala-for-good',
     name: 'Gala for Good',
@@ -1356,7 +1402,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'sparkles', title: 'The Lots', note: 'Preview every auction lot, with reserves.' },
       { icon: 'music', title: 'The Score', note: 'The evening’s programme, piece by piece.' },
     ],
-  },
+  
+    dateDisplay: '7 Nov 2026',
+    timeDisplay: '7:00 PM onwards',
+    highlights: ['Every ticket plants 100 trees', 'Auction for schools', 'Live orchestra performance'],},
   {
     id: 'new-years-constellation',
     name: 'New Year’s — Under a Constellation',
@@ -1430,7 +1479,10 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'music', title: 'The Setlist', note: 'The twelve-course soundtrack, revealed early.' },
       { icon: 'camera', title: 'The Mirror Wall', note: 'Your night, projected back at you.' },
     ],
-  },
+  
+    dateDisplay: '31 Dec 2026',
+    timeDisplay: '9:00 PM onwards',
+    highlights: ['Mirrored sky deck', 'Twelve-course dinner', 'No phones at midnight'],},
   {
     id: 'art-of-you-exhibition',
     name: 'The Art of You — Exhibition',
@@ -1504,7 +1556,101 @@ export const DEMOS: ExperienceDemo[] = [
       { icon: 'ticket', title: 'The Invite', note: 'A collectible digital ticket, numbered to 120.' },
       { icon: 'camera', title: 'Midnight Hang', note: 'The moment the warehouse becomes a gallery.' },
     ],
-  },
+  
+    dateDisplay: '18 Jun 2026',
+    timeDisplay: '6:00 PM onwards',
+    highlights: ['40 live portrait artists', 'Guests become the gallery', 'Framed portrait to take home'],},
+  {
+    id: 'birthday',
+    name: "Aarav's 1st Birthday Celebration",
+    category: 'Birthdays',
+    style: 'Playful Premium',
+    tagline: 'One year. A million memories. — A premium first birthday celebration.',
+    description:
+      'A joyful, premium birthday experience for Aarav\'s first birthday. Playful animations, a story timeline, interactive cake moment, and everything a real event website needs.',
+    theme: {
+      name: 'Birthday Sunshine',
+      scene: 'confetti',
+      mode: 'light',
+      c: { base: '#fdf8f0', a: '#e8735a', b: '#5ba4cf', accent: '#f5c842', text: '#1a2744' },
+    },
+    typography: { display: 'editorial', body: 'sans' },
+    monogram: 'A·1',
+    heroKicker: "It's a birthday celebration",
+    heroTitle: 'Aarav Turns ONE',
+    heroSubtitle: '18 · 10 · 2026 — Hyderabad',
+    hero: {
+      overline: '18 OCTOBER 2026 · HYDERABAD',
+      headline: 'AARAV',
+      subline: 'One year. A million memories.',
+    },
+    welcome: {
+      heading: 'Welcome to the celebration',
+      message: [
+        "Our little prince Aarav is turning ONE, and we want you to be part of this magical milestone.",
+        "It's been a year of firsts — first smile, first laugh, first step — and now, the biggest celebration yet.",
+      ],
+      signoff: 'With love, Ananya & Rahul',
+    },
+    venue: 'The Grand Celebration Hall',
+    venueDetail: 'Jubilee Hills, Hyderabad',
+    countdownInDays: 72,
+    guests: 150,
+    story: [
+      'From his very first cry to his very first step, every moment with Aarav has been a gift.',
+      "Here's to the year that changed everything — and the lifetime of adventures still to come.",
+    ],
+    gallery: [
+      { label: 'The Arrival', scene: 'balloon', caption: 'The day Aarav arrived.' },
+      { label: 'First Smile', scene: 'bokeh', caption: 'Those tiny fingers.' },
+      { label: 'First Bath', scene: 'sparkle', caption: 'First bath, first splashes.' },
+      { label: 'Nap Time', scene: 'floral', caption: 'Nap time with Ellie.' },
+      { label: 'Golden Hour', scene: 'sunset', caption: 'Golden hour with mamma.' },
+      { label: 'First Adventure', scene: 'leaves', caption: 'First park adventure.' },
+      { label: 'Birthday Boy', scene: 'confetti', caption: 'The birthday boy!' },
+      { label: 'Stargazing', scene: 'stars', caption: 'Stargazing with papa.' },
+      { label: 'Family', scene: 'arch', caption: 'Family portrait day.' },
+      { label: 'Monogram', scene: 'monogram', caption: "Aarav's monogram." },
+      { label: 'Splashing', scene: 'wave', caption: 'Splashing in the tub.' },
+      { label: 'Hyderabad', scene: 'citynight', caption: 'Hyderabad with Aarav.' },
+    ],
+    schedule: [
+      { time: '5:00 PM', title: 'Welcome', note: 'Arrive and celebrate' },
+      { time: '5:30 PM', title: 'Games & Fun', note: 'For kids and adults' },
+      { time: '6:30 PM', title: 'Cake Cutting', note: 'The main event' },
+      { time: '7:00 PM', title: 'Dinner', note: 'A feast for everyone' },
+      { time: '8:00 PM', title: 'Goodbyes & Memories', note: 'Until next time' },
+    ],
+    track: 'Little Stars — Birthday Melody',
+    mood: 'joyful, playful, warm',
+    rsvp: {
+      confirmBy: 'Please confirm by Sunday, 5 October 2026',
+      email: 'aarav.birthday@family.in',
+      phone: '+91 98765 54321',
+      prompt: 'Will you join the party?',
+      note: 'Let us know you are coming — the more, the merrier!',
+    },
+    contact: {
+      email: 'aarav.birthday@family.in',
+      phone: '+91 98765 54321',
+      whatsapp: '+91 98765 54321',
+      note: 'For directions, dietary needs, or gift ideas — reach out anytime.',
+    },
+    specialFeatures: [
+      { icon: 'cake', title: 'Make a Wish', note: 'An interactive cake moment — blow out the candle with us.' },
+      { icon: 'heart', title: 'Birthday Wishes', note: 'Leave Aarav a wish that he will treasure forever.' },
+      { icon: 'camera', title: 'Photo Gallery', note: 'Fifty-two weeks of joy, captured in one place.' },
+    ],
+    family: [
+      { name: 'Ananya', relation: 'Mom', note: 'The one who sings lullabies at 3am and still plans the perfect party.', scene: 'bokeh' },
+      { name: 'Rahul', relation: 'Dad', note: 'The one who built the crib and still tears up at every milestone.', scene: 'sunset' },
+      { name: 'Dadi', relation: 'Grandmother', note: 'The one whose recipes make every day feel like home.', scene: 'leaves' },
+      { name: 'Nani', relation: 'Grandmother', note: 'The one who always has a story and a sweet ready.', scene: 'floral' },
+    ],
+  
+    dateDisplay: '18 Oct 2026',
+    timeDisplay: '5:00 PM onwards',
+    highlights: ['Interactive cake moment', 'Guest birthday wishes', 'One year of memories'],},
   {
     id: 'wedding',
     name: 'Rahul & Priya — A Royal Celebration',

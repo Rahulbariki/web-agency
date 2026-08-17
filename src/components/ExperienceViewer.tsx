@@ -18,6 +18,7 @@ import { ContactSection } from './experience/ContactSection'
 import { ShareSection } from './experience/ShareSection'
 import { EventFooter } from './experience/EventFooter'
 import { WeddingExperience } from './wedding/WeddingExperience'
+import { BirthdayExperience } from './birthday/BirthdayExperience'
 
 interface ExperienceViewerProps {
   demo: ExperienceDemo
@@ -70,6 +71,8 @@ export function ExperienceViewer({ demo, onClose }: ExperienceViewerProps) {
     >
       {demo.id === 'wedding' ? (
         <WeddingExperience demo={demo} onClose={onClose} />
+      ) : demo.id === 'birthday' ? (
+        <BirthdayExperience demo={demo} onClose={onClose} />
       ) : (
       <div
         className="h-full w-full overflow-y-auto overscroll-contain"
