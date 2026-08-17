@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Sparkles } from 'lucide-react'
 import { BIRTHDAY, type BirthdayWish } from '../../data/birthday'
 import { Fade } from '../experience/theme'
-import { cn } from '../../lib/utils'
 
 export function BirthdayWishes() {
   const [wishes, setWishes] = useState<BirthdayWish[]>(BIRTHDAY.wishes.preloaded)
