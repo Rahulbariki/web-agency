@@ -1,4 +1,0 @@
-
-export function getDemoById(id: string): ExperienceDemo | undefined {
-  return DEMOS.find((demo) => demo.id === id)
-}
