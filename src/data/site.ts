@@ -19,6 +19,9 @@ export const FILTER_CATEGORIES: (Category | 'All')[] = [
   'Corporate',
   'College',
   'Special Events',
+  'Festivals',
+  'Anniversary',
+  'Housewarming',
 ]
 
 export const TRUST_CATEGORIES = [
@@ -198,4 +201,7 @@ export const FOOTER_CATEGORIES: Category[] = [
   'Corporate',
   'College',
   'Special Events',
+  'Festivals',
+  'Anniversary',
+  'Housewarming',
 ]

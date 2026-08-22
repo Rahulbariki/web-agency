@@ -538,6 +538,73 @@ function SceneLayers({ scene, c }: { scene: Scene; c: Palette }) {
       )
     }
 
+    case 'mandap': {
+      return (
+        <>
+          <div className="absolute -left-12 -top-12 h-64 w-64 rounded-full opacity-50" style={{ background: `radial-gradient(circle, ${mix(c.a, 0.45)}, transparent 70%)` }} />
+          <div className="absolute -right-10 bottom-[20%] h-48 w-48 rounded-full opacity-30" style={{ background: `radial-gradient(circle, ${mix(c.b, 0.35)}, transparent 70%)` }} />
+          <div className="absolute bottom-0 left-1/2 h-[52%] w-[72%] -translate-x-1/2" style={{ background: `linear-gradient(0deg, ${mix(c.a, 0.22)}, transparent)`, borderRadius: '50% 50% 0 0' }} />
+          {[18, 38, 58, 78].map((l, i) => (
+            <div key={i} className="absolute bottom-0 h-[48%] w-px" style={{ left: `${l}%`, background: `linear-gradient(0deg, ${mix(c.a, 0.5)}, transparent)` }} />
+          ))}
+          <div className="absolute left-1/2 top-[10%] h-[8%] w-[68%] -translate-x-1/2 rounded-b-full" style={{ border: `1px solid ${mix(c.a, 0.35)}`, borderTop: 'none' }} />
+          {[28, 48, 68].map((l, i) => (
+            <div key={i} className="absolute" style={{ left: `${l}%`, top: '18%', width: 10, height: 10, borderRadius: '50%', background: mix(c.accent, 0.6), boxShadow: `0 0 12px ${mix(c.accent, 0.4)}` }} />
+          ))}
+          <Stars c={c} count={10} />
+        </>
+      )
+    }
+
+    case 'garden': {
+      return (
+        <>
+          <div className="absolute -left-16 top-[20%] h-56 w-56 rounded-full opacity-40" style={{ background: `radial-gradient(circle, ${mix(c.accent, 0.45)}, transparent 70%)` }} />
+          <div className="absolute -right-12 top-[10%] h-40 w-40 rounded-full opacity-35" style={{ background: `radial-gradient(circle, ${mix(c.b, 0.35)}, transparent 70%)` }} />
+          {[12, 28, 72, 88].map((l, i) => (
+            <div key={i} className="absolute bottom-[10%] h-[35%] w-px" style={{ left: `${l}%`, background: `linear-gradient(0deg, ${mix(c.accent, 0.55)}, transparent)` }} />
+          ))}
+          {[22, 50, 78].map((l, i) => (
+            <div key={i} className="absolute bottom-[8%]" style={{ left: `${l}%`, width: 14, height: 14, borderRadius: '50%', background: `radial-gradient(circle, ${mix(c.accent, 0.7)}, ${mix(c.accent, 0.3)})`, boxShadow: `0 0 16px ${mix(c.accent, 0.35)}` }} />
+          ))}
+          {[18, 42, 65, 85].map((l, i) => (
+            <div key={i} className="absolute top-[14%]" style={{ left: `${l}%`, width: 8, height: 8, borderRadius: '50%', background: mix(c.a, 0.5), boxShadow: `0 0 10px ${mix(c.a, 0.3)}` }} />
+          ))}
+          <Stars c={c} count={8} />
+        </>
+      )
+    }
+
+    case 'beach': {
+      return (
+        <>
+          <div className="absolute bottom-0 left-0 h-[45%] w-full" style={{ background: `linear-gradient(0deg, ${mix(c.b, 0.4)}, ${mix(c.b, 0.1)} 70%, transparent)` }} />
+          <div className="absolute bottom-[40%] left-0 h-px w-full" style={{ background: `linear-gradient(90deg, transparent 5%, ${mix(c.a, 0.3)} 30%, ${mix(c.a, 0.3)} 70%, transparent 95%)` }} />
+          <div className="absolute -left-16 -top-12 h-64 w-64 rounded-full opacity-40" style={{ background: `radial-gradient(circle, ${mix(c.accent, 0.5)}, transparent 70%)` }} />
+          <div className="absolute bottom-[50%] left-[60%] h-24 w-24 rounded-full opacity-40" style={{ background: `radial-gradient(circle, ${mix(c.accent, 0.55)}, transparent 70%)` }} />
+          {[20, 45, 70].map((l, i) => (
+            <div key={i} className="absolute bottom-[42%] h-3 w-16 rounded-full opacity-30" style={{ left: `${l}%`, background: mix(c.a, 0.3) }} />
+          ))}
+          <Stars c={c} count={14} />
+        </>
+      )
+    }
+
+    case 'stage': {
+      return (
+        <>
+          <div className="absolute -left-16 -top-12 h-64 w-64 rounded-full opacity-35" style={{ background: `radial-gradient(circle, ${mix(c.accent, 0.5)}, transparent 70%)` }} />
+          <div className="absolute -right-14 bottom-[30%] h-48 w-48 rounded-full opacity-30" style={{ background: `radial-gradient(circle, ${mix(c.b, 0.4)}, transparent 70%)` }} />
+          <div className="absolute bottom-0 left-1/2 h-[42%] w-[78%] -translate-x-1/2 rounded-t-lg" style={{ background: `linear-gradient(0deg, ${mix(c.a, 0.18)}, transparent)` }} />
+          {[20, 36, 52, 68, 84].map((l, i) => (
+            <div key={i} className="absolute bottom-[38%] h-12 w-1 rounded-full" style={{ left: `${l}%`, background: `linear-gradient(0deg, ${mix(c.accent, 0.55)}, transparent)`, boxShadow: `0 0 8px ${mix(c.accent, 0.25)}` }} />
+          ))}
+          <div className="absolute bottom-[50%] left-1/2 h-px w-[64%] -translate-x-1/2" style={{ background: `linear-gradient(90deg, transparent, ${mix(c.a, 0.25)}, transparent)` }} />
+          <Stars c={c} count={16} />
+        </>
+      )
+    }
+
     default:
       return <Stars c={c} count={30} />
   }
